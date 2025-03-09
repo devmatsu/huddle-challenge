@@ -9,16 +9,24 @@
     "start": "node dist/index.js",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "format": "prettier --write ."
+    "prettier:format": "prettier --write .",
+    "db:init": "npx prisma migrate dev --name init",
+    "db:generate": "npx prisma generate",
+    "db:reset": "npx prisma migrate reset --force",
+    "db:seed": "node prisma/seed.mjs",
+    "db:setup": "npm run db:init && npm run db:generate"
   },
   "keywords": [],
   "author": "Rodrigo Matagawa <devmatsu>",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "helmet": "^8.0.0"
+    "helmet": "^8.0.0",
+    "prisma": "^6.4.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

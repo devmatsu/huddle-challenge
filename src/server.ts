@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+import prisma from './config/database';
 
 import routes from './routes';
 import errorHandler from './middlewares/errorHandler';
@@ -13,9 +14,19 @@ class Server {
 
   constructor() {
     this.app = express();
+    this.database();
     this.middlewares();
     this.routes();
     this.errorHandling();
+  }
+
+  private async database(): Promise<void> {
+    try {
+      await prisma.$connect();
+      console.log('Database connected successfully!');
+    } catch (error) {
+      console.error('Database connection error:', error);
+    }
   }
 
   private middlewares(): void {
