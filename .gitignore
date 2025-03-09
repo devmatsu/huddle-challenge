@@ -29,3 +29,10 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Ignore the database file
+prisma/dev.db
+
+# Ignore Prisma's generated client (should be re-generated in CI/CD)
+node_modules/
+prisma/generated/
