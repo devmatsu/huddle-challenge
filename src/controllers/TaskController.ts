@@ -58,14 +58,24 @@ class TaskController {
   }
 
   static async update(req: Request, res: Response) {
-    const { id } = req.params;
-    const { title, description, completed } = req.body;
     try {
-      const task = await prisma.task.update({
+      const { id } = req.params;
+      const { title, description, completed } = req.body;
+
+      const task = await prisma.task.findUnique({
+        where: { id: Number(id) },
+      });
+
+      if (!task) {
+        res.status(404).json({ message: `Task with ID ${id} does not exist.` });
+        return;
+      }
+
+      const updatedTask = await prisma.task.update({
         where: { id: Number(id) },
         data: { title, description, completed },
       });
-      res.json(task);
+      res.json(updatedTask);
     } catch (error) {
       if (error instanceof Error) {
         res
