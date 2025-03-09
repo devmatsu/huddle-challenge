@@ -51,4 +51,3 @@ class Server {
 }
 
 export default new Server();
-export const { app } = new Server();
