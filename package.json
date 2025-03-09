@@ -11,9 +11,10 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier:format": "prettier --write .",
-    "db:init": "npx prisma migrate dev --name init",
+    "db:ensure-env": "ts-node scripts/setupEnv.ts",
+    "db:init": "npm run db:ensure-env && npx prisma migrate dev --name init",
     "db:generate": "npx prisma generate",
-    "db:reset": "npx prisma migrate reset --force",
+    "db:reset": "npm run db:ensure-env && npx prisma migrate reset --force",
     "db:seed": "node prisma/seed.mjs",
     "db:setup": "npm run db:init && npm run db:generate"
   },
