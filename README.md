@@ -1,4 +1,4 @@
-<p align="center"><a href="[https://empathmsp.com/](https://huddle.huddlebrasil.com/)" target="_blank"><img src="./huddle_logo.png" width="400" alt="Huddle Logo"></a></p>
+<p align="center"><a href="[https://empathmsp.com/](https://huddle.huddlebrasil.com/)" target="_blank"><img src="./huddle_logo.png" width="400" alt="Huddle Logo" style="display: block; margin: 0 auto;"></a></p>
 
 <p align="center">
 <a href=""><img src="https://img.shields.io/badge/node.js-339933?style=flat&logo=Node.js&logoColor=white" alt="Node.js"></a>
